@@ -1,0 +1,127 @@
+<!-- cs202 key assignment chaya
+ bc210407926
+ name kashif Umar -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Profile</title>
+    <style>
+        body {
+            background-color: cyan;
+            color: black;
+            font-family: Arial, sans-serif;
+        }
+
+        .sprofile{
+            background-color: green;
+        }
+
+        h1 {
+            font-weight: bold;
+            text-align: center;
+        }
+
+        table {
+            width: 70%;
+            margin: 20px auto;
+        }
+
+        th,
+        td {
+            border: 1px double black;
+            padding: 10px;
+            text-align: left;
+	        font-weight:bold;
+        }
+
+
+
+        #btn {
+            margin-left: 30px;
+            padding: 10px;
+            font-weight: 700;
+	
+        }
+
+        #instruction,
+        #infoInstruction {
+            font-weight: bold;
+        }
+
+        #profileText {
+            display: flex;
+            flex-wrap: wrap;
+            color: black;
+            font-weight: bold;
+            margin-top: 20px;
+            padding: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Assignment #2</h1>
+    <h2>Student Profile</h2>
+    <table>
+        <tr>
+            <th  class="sprofile" style="text-align:center" colspan="4">Profile Info</th>
+        </tr>
+        <tr>
+            <td>StudentID:</td>
+            <td id="studentID">BC210407926</td>
+            <td>Study Program:</td>
+            <td id="studyProgram">4-years ADP(Computer Science)</td>
+        </tr>
+        <tr>
+            <td>Name:</td>
+            <td id="name">Muhammad kashif umar siddique</td>
+            <td>Current Semester:</td>
+            <td id="currentSemester">Fall 2023</td>
+        </tr>
+        <tr>
+            <td>CGPA:</td>
+            <td id="cgpa">2.58</td>
+            <td>Credit Hrs (earned):</td>
+            <td id="creditHrs">80</td>
+        </tr>
+    </table>
+    <p id="instruction">Please click on View button to Print Student Profile as a Text</p>
+    <input type="button" id="btn" value="Print Text" onclick="showProfileText()">
+    <p id="infoInstruction">Student Profile as text will be shown here</p>
+    <div id="profileText">
+        <p id="profileInfoText"></p>
+    </div>
+
+    <script>
+        function showProfileText() {
+            var profileText = document.getElementById("profileText");
+            var profileInfoText = document.getElementById("profileInfoText");
+            var instruction = document.getElementById("instruction");
+            var infoInstruction = document.getElementById("infoInstruction");
+            var studentID = document.getElementById("studentID").textContent;
+            var studyProgram = document.getElementById("studyProgram").textContent;
+            var name = document.getElementById("name").textContent;
+            var currentSemester = document.getElementById("currentSemester").textContent;
+            var cgpa = document.getElementById("cgpa").textContent;
+            var creditHrs = document.getElementById("creditHrs").textContent;
+            var profileInfo = `StudentID: ${studentID}` +
+                  `StudyProgram: ${studyProgram}\n` +
+                  `Name: ${name}` +
+                  `Current Semester: ${currentSemester}\n` +
+                  `CGPA: ${cgpa}` +
+                  `Credit Hrs (earned): ${creditHrs}`;
+
+            profileInfoText.textContent = profileInfo;
+            instruction.style.display = "none";
+            infoInstruction.style.display = "none";
+            profileText.style.display = "block";
+            document.body.style.backgroundColor = "green";
+        }
+    </script>
+</body>
+
+</html>
